@@ -1,7 +1,7 @@
 node ('master'){
   checkout scm
     stage ('Build'){
-      withMaven (maven: 'M3'){
+      withMaven(jdk: 'JDK for Maven', maven: '3.6.3'){
         if (isUnix()){
           sh 'mvn -Dmaven.test.failure.ignore clean package'
         }
